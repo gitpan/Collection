@@ -1,0 +1,47 @@
+---
+name: Collection
+version: 0.38
+author:
+  - Zahatski Aliaksandr zag@cpan.org
+abstract: Collections framework for to B<CRUD> data or objects.
+license: perl
+resources:
+  license: http://dev.perl.org/licenses/
+provides:
+  Collection:
+    file: lib/Collection.pm
+    version: 0.38
+  Collection::AutoSQL:
+    file: lib/Collection/AutoSQL.pm
+    version: 0.02
+  Collection::Mem:
+    file: lib/Collection/Mem.pm
+    version: 0.01
+  Collection::Memcached:
+    file: lib/Collection/Memcached.pm
+    version: 0.01
+  Collection::Utl::ActiveRecord:
+    file: lib/Collection/Utl/ActiveRecord.pm
+    version: 0.01
+  Collection::Utl::Base:
+    file: lib/Collection/Utl/Base.pm
+    version: 0.01
+  Collection::Utl::HashUnion:
+    file: lib/Collection/Utl/HashUnion.pm
+    version: 0.01
+  Collection::Utl::Item:
+    file: lib/Collection/Utl/Item.pm
+    version: 0.02
+  Collection::Utl::LazyObject:
+    file: lib/Collection/Utl/LazyObject.pm
+    version: 0.01
+  Collection::Utl::Mirror:
+    file: lib/Collection/Utl/Mirror.pm
+    version: 0.01
+  Objects::Collection::AutoSQLnotUnique:
+    file: lib/Collection/AutoSQLnotUnique.pm
+    version: 0.01
+generated_by: Module::Build version 0.2808
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.2.html
+  version: 1.2
