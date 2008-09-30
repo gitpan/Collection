@@ -1,6 +1,6 @@
 ---
 name: Collection
-version: 0.38
+version: 0.39
 author:
   - Zahatski Aliaksandr zag@cpan.org
 abstract: Collections framework for to B<CRUD> data or objects.
@@ -10,10 +10,13 @@ resources:
 provides:
   Collection:
     file: lib/Collection.pm
-    version: 0.38
+    version: 0.39
   Collection::AutoSQL:
     file: lib/Collection/AutoSQL.pm
     version: 0.02
+  Collection::AutoSQLnotUnique:
+    file: lib/Collection/AutoSQLnotUnique.pm
+    version: 0.01
   Collection::Mem:
     file: lib/Collection/Mem.pm
     version: 0.01
@@ -37,9 +40,6 @@ provides:
     version: 0.01
   Collection::Utl::Mirror:
     file: lib/Collection/Utl/Mirror.pm
-    version: 0.01
-  Objects::Collection::AutoSQLnotUnique:
-    file: lib/Collection/AutoSQLnotUnique.pm
     version: 0.01
 generated_by: Module::Build version 0.2808
 meta-spec:
