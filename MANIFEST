@@ -5,6 +5,7 @@ lib/Collection/AutoSQL.pm
 lib/Collection/AutoSQLnotUnique.pm
 lib/Collection/Mem.pm
 lib/Collection/Memcached.pm
+lib/Collection/Storable.pm
 lib/Collection/Utl/ActiveRecord.pm
 lib/Collection/Utl/Base.pm
 lib/Collection/Utl/HashUnion.pm
@@ -19,6 +20,7 @@ scripts/usage1.sql
 t/010_use.t
 t/020_Mirror.t
 t/030_Memcached.t
+t/040_Storable.t
 t/HashUnion.t
 t/LazyLoad.t
 META.yml

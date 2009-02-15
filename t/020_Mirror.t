@@ -1,3 +1,5 @@
+#$Id: 020_Mirror.t 456 2009-02-15 12:10:40Z zag $
+
 # Before `make install' is performed this script should be runnable with
 # `make test'. After `make install' it should work as `perl Object-Collection.t'
 
@@ -8,7 +10,6 @@
 use Test::More 'no_plan';    #tests => 'noplan';
 
 #use Test::More tests =>24 ;
-use lib 't/lib';
 use Data::Dumper;
 
 BEGIN {

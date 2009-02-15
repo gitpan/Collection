@@ -1,16 +1,18 @@
 ---
 name: Collection
-version: 0.41
+version: 0.42
 author:
   - Zahatski Aliaksandr zag@cpan.org
-abstract: Collections framework for to B<CRUD> data or objects.
+abstract: Collections framework for  B<CRUD> of the data or objects.
 license: perl
 resources:
   license: http://dev.perl.org/licenses/
+requires:
+  Storable: 0
 provides:
   Collection:
     file: lib/Collection.pm
-    version: 0.41
+    version: 0.42
   Collection::AutoSQL:
     file: lib/Collection/AutoSQL.pm
     version: 0.04
@@ -22,6 +24,9 @@ provides:
     version: 0.01
   Collection::Memcached:
     file: lib/Collection/Memcached.pm
+    version: 0.01
+  Collection::Storable:
+    file: lib/Collection/Storable.pm
     version: 0.01
   Collection::Utl::ActiveRecord:
     file: lib/Collection/Utl/ActiveRecord.pm
