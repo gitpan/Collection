@@ -21,6 +21,7 @@ t/010_use.t
 t/020_Mirror.t
 t/030_Memcached.t
 t/040_Storable.t
+t/050_AutoSQL.t
 t/HashUnion.t
 t/LazyLoad.t
 META.yml

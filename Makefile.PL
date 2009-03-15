@@ -5,7 +5,7 @@ WriteMakefile
           'NAME' => 'Collection',
           'VERSION_FROM' => 'lib/Collection.pm',
           'PREREQ_PM' => {
-                           'Storable' => '0'
+                           'Storable' => 0
                          },
           'INSTALLDIRS' => 'site',
           'EXE_FILES' => [],

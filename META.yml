@@ -1,6 +1,6 @@
 ---
 name: Collection
-version: 0.42
+version: 0.43
 author:
   - Zahatski Aliaksandr zag@cpan.org
 abstract: Collections framework for  B<CRUD> of the data or objects.
@@ -12,7 +12,7 @@ requires:
 provides:
   Collection:
     file: lib/Collection.pm
-    version: 0.42
+    version: 0.43
   Collection::AutoSQL:
     file: lib/Collection/AutoSQL.pm
     version: 0.04
