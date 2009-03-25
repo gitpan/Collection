@@ -1,18 +1,18 @@
 ---
 name: Collection
-version: 0.43
+version: 0.44
 author:
   - Zahatski Aliaksandr zag@cpan.org
 abstract: Collections framework for  B<CRUD> of the data or objects.
 license: perl
 resources:
-  license: http://dev.perl.org/licenses/
+  license: ~
 requires:
   Storable: 0
 provides:
   Collection:
     file: lib/Collection.pm
-    version: 0.43
+    version: 0.44
   Collection::AutoSQL:
     file: lib/Collection/AutoSQL.pm
     version: 0.04
@@ -46,7 +46,7 @@ provides:
   Collection::Utl::Mirror:
     file: lib/Collection/Utl/Mirror.pm
     version: 0.01
-generated_by: Module::Build version 0.3
+generated_by: Module::Build version 0.32
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.2.html
   version: 1.2
