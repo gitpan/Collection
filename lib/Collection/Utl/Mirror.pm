@@ -29,7 +29,7 @@ use Test::More;
 require Tie::Hash;
 use Collection;
 @Collection::Utl::Mirror::ISA     = qw(Collection);
-$Collection::Utl::Mirror::VERSION = '0.01';
+$Collection::Utl::Mirror::VERSION = '0.02';
 
 __PACKAGE__->attributes qw( _c1 _c2 _stack);
 
@@ -57,12 +57,12 @@ sub _fetch {
     my $self = shift;
 
     #collect ids to fetch
-    my @ids =  @_;
+    my @ids = @_;
     return {} unless @ids;    #skip empty ids list
     my ( $c1, $c2 ) = @{ $self->_stack };
 
     #read keys from first collection
-    my $res1     = $c1->fetch(@_);
+    my $res1     = $c1->fetch(@ids);
     my @notfound = ();
     foreach my $key (@ids) {
         push @notfound, $key unless exists $res1->{$key};
@@ -74,10 +74,11 @@ sub _fetch {
         #        diag "Fetch non exists in col1".Dumper (\@notfound);
         my $res2        = $c2->fetch(@notfound);
         my %create_keys = ();
-        foreach my $k1 (@notfound) {
-            next unless exists $res2->{$k1};    #skip real nonexists keys
-            my $value = $res2->{$k1};
+        while ( my( $k1, $value ) = each  %$res2 )  {
 
+            #save results from $c2 storage in
+            #out put results
+            $res1->{$k1} = $value;
             #save for create
             $create_keys{$k1} = $value;
         }
@@ -86,9 +87,13 @@ sub _fetch {
             #            diag "create". Dumper (\%create_keys);
             #store only simply results
             #now store to coll1
-            my $created = $c1->create( \%create_keys );
-            while ( my ( $k2, $v2 ) = each %$created ) {
-                $res1->{$k2} = $v2;
+            my $created = $c1->create( %create_keys );
+            #if suss create use records from fast source
+            while ( my ( $key, $val) = each %create_keys ) {
+                #if fail create record in fast src
+                #use record from stable
+                next unless exists $created->{$key};
+                $res1->{$key} = $created->{$key};
             }
         }
     }
@@ -120,7 +125,6 @@ sub _store {
     my $hash2store = shift;
     my @ids2store  = keys %$hash2store;
     my $coll2res   = $c2->fetch(@ids2store);
-
     #and create new in col2
     #create non exists keys on c2
     my %tocreate = ();
@@ -129,14 +133,20 @@ sub _store {
             my $value = $coll2res->{$key};
 
             #mirror only HASHes
-            if ( ref($value) eq 'HASH' ) {
+            if ( ref($val) eq 'HASH' ) {
 
                 #use value as hash
                 %$value = %$val;
             }
+            elsif ( UNIVERSAL::isa( $val, 'Collection::Utl::Item' ) ) {
+                %$value = %{$val->attr}
+
+            }
         }
         else {
-            #is this possible ?
+
+            #warn "resync source collections";
+            #syncing stable
             $tocreate{$key} = $val;
         }
     }
@@ -148,8 +158,9 @@ sub _store {
     #mirror coll1 to coll2
     while ( my ( $key, $val ) = each %$hash2store ) {
         next unless exists $coll2res->{$key};
-
+        
     }
+
     # changed items we also mirror to coll2
     $c1->store(@ids2store);
     $c2->store(@ids2store);
@@ -173,9 +184,13 @@ sub list_ids {
 sub _delete {
     my $self = shift;
     my ( $c1, $c2 ) = @{ $self->_stack };
+    my %res = ();
     for ( $c1, $c2 ) {
-        $_->delete(@_)
+
+        #save results
+        @res{ @{ $_->delete(@_) || [] } } = ();
     }
+    [ keys %res ];
 }
 1;
 __END__
@@ -191,7 +206,7 @@ Zahatski Aliaksandr, <zag@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (C) 2005-2008 by Zahatski Aliaksandr
+Copyright (C) 2005-2009 by Zahatski Aliaksandr
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself, either Perl version 5.8.8 or,

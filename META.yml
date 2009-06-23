@@ -1,6 +1,6 @@
 ---
 name: Collection
-version: 0.44
+version: 0.45
 author:
   - Zahatski Aliaksandr zag@cpan.org
 abstract: Collections framework for  B<CRUD> of the data or objects.
@@ -12,7 +12,7 @@ requires:
 provides:
   Collection:
     file: lib/Collection.pm
-    version: 0.44
+    version: 0.45
   Collection::AutoSQL:
     file: lib/Collection/AutoSQL.pm
     version: 0.04
@@ -45,7 +45,7 @@ provides:
     version: 0.01
   Collection::Utl::Mirror:
     file: lib/Collection/Utl/Mirror.pm
-    version: 0.01
+    version: 0.02
 generated_by: Module::Build version 0.32
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.2.html
