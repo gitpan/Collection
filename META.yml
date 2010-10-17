@@ -1,21 +1,22 @@
 ---
-name: Collection
-version: 0.45
+abstract: 'Collections framework for  B<CRUD> of the data or objects.'
 author:
-  - Zahatski Aliaksandr zag@cpan.org
-abstract: Collections framework for  B<CRUD> of the data or objects.
+  - 'Zahatski Aliaksandr zag@cpan.org'
+configure_requires:
+  Module::Build: 0.36
+generated_by: 'Module::Build version 0.3601'
 license: perl
-resources:
-  license: ~
-requires:
-  Storable: 0
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: Collection
 provides:
   Collection:
     file: lib/Collection.pm
-    version: 0.45
+    version: 0.46
   Collection::AutoSQL:
     file: lib/Collection/AutoSQL.pm
-    version: 0.04
+    version: 1.0
   Collection::AutoSQLnotUnique:
     file: lib/Collection/AutoSQLnotUnique.pm
     version: 0.01
@@ -46,7 +47,8 @@ provides:
   Collection::Utl::Mirror:
     file: lib/Collection/Utl/Mirror.pm
     version: 0.02
-generated_by: Module::Build version 0.32
-meta-spec:
-  url: http://module-build.sourceforge.net/META-spec-v1.2.html
-  version: 1.2
+requires:
+  Storable: 0
+resources:
+  license: http://dev.perl.org/licenses/
+version: 0.46
