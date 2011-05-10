@@ -8,6 +8,7 @@ lib/Collection/Memcached.pm
 lib/Collection/Storable.pm
 lib/Collection/Utl/ActiveRecord.pm
 lib/Collection/Utl/Base.pm
+lib/Collection/Utl/Flow.pm
 lib/Collection/Utl/HashUnion.pm
 lib/Collection/Utl/Item.pm
 lib/Collection/Utl/LazyObject.pm

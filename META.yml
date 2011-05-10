@@ -4,7 +4,7 @@ author:
   - 'Zahatski Aliaksandr zag@cpan.org'
 configure_requires:
   Module::Build: 0.36
-generated_by: 'Module::Build version 0.3601'
+generated_by: 'Module::Build version 0.3624'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -13,7 +13,7 @@ name: Collection
 provides:
   Collection:
     file: lib/Collection.pm
-    version: 0.47
+    version: 0.48
   Collection::AutoSQL:
     file: lib/Collection/AutoSQL.pm
     version: 1.1
@@ -35,6 +35,9 @@ provides:
   Collection::Utl::Base:
     file: lib/Collection/Utl/Base.pm
     version: 0.01
+  Collection::Utl::Flow:
+    file: lib/Collection/Utl/Flow.pm
+    version: 0.01
   Collection::Utl::HashUnion:
     file: lib/Collection/Utl/HashUnion.pm
     version: 0.01
@@ -48,7 +51,8 @@ provides:
     file: lib/Collection/Utl/Mirror.pm
     version: 0.02
 requires:
+  Flow: 0.6
   Storable: 0
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.47
+version: 0.48
