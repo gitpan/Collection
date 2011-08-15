@@ -4,7 +4,7 @@
 #
 #       AUTHOR:  Aliaksandr P. Zahatski, <zahatski@gmail.com>
 #===============================================================================
-#$Id: Flow.pm 952 2011-05-09 11:24:58Z zag $
+#$Id: Flow.pm 967 2011-08-11 13:55:00Z zag $
 package Collection::Utl::Flow;
 
 =head1 NAME
@@ -41,7 +41,6 @@ sub flow {
 
 1;
 __END__
-
 
 =head1 SEE ALSO
 
