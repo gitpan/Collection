@@ -1,10 +1,10 @@
 package Collection;
 
-#$Id: Collection.pm 967 2011-08-11 13:55:00Z zag $
+#$Id: Collection.pm 973 2011-08-28 16:58:27Z zag $
 
 =head1 NAME
 
-Collection - Collections framework for  B<CRUD> of the data or objects.
+Collection - CRUD framework
 
 =head1 SYNOPSIS
 
@@ -85,7 +85,7 @@ use Collection::Utl::ActiveRecord;
 use Collection::Utl::Base;
 use Collection::Utl::LazyObject;
 @Collection::ISA     = qw(Collection::Utl::Base);
-$Collection::VERSION = '0.49';
+$Collection::VERSION = '0.50';
 attributes qw( _obj_cache );
 
 sub _init {
