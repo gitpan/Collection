@@ -3,6 +3,7 @@ Changes
 lib/Collection.pm
 lib/Collection/AutoSQL.pm
 lib/Collection/AutoSQLnotUnique.pm
+lib/Collection/CrcColl.pm
 lib/Collection/Mem.pm
 lib/Collection/Memcached.pm
 lib/Collection/Storable.pm
@@ -26,3 +27,4 @@ t/050_AutoSQL.t
 t/HashUnion.t
 t/LazyLoad.t
 META.yml
+META.json

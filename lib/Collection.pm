@@ -1,6 +1,6 @@
 package Collection;
 
-#$Id: Collection.pm 973 2011-08-28 16:58:27Z zag $
+#$Id$
 
 =head1 NAME
 
@@ -85,7 +85,7 @@ use Collection::Utl::ActiveRecord;
 use Collection::Utl::Base;
 use Collection::Utl::LazyObject;
 @Collection::ISA     = qw(Collection::Utl::Base);
-$Collection::VERSION = '0.50';
+$Collection::VERSION = '0.51';
 attributes qw( _obj_cache );
 
 sub _init {

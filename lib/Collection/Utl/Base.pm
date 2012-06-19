@@ -1,6 +1,6 @@
 package Collection::Utl::Base;
 
-#$Id: Base.pm 336 2008-09-26 11:54:06Z zag $
+#$Id$
 
 =head1 NAME
 

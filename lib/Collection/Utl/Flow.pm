@@ -4,7 +4,7 @@
 #
 #       AUTHOR:  Aliaksandr P. Zahatski, <zahatski@gmail.com>
 #===============================================================================
-#$Id: Flow.pm 967 2011-08-11 13:55:00Z zag $
+#$Id$
 package Collection::Utl::Flow;
 
 =head1 NAME
