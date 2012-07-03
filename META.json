@@ -4,7 +4,7 @@
       "Zahatski Aliaksandr zag@cpan.org"
    ],
    "dynamic_config" : 1,
-   "generated_by" : "Module::Build version 0.38, CPAN::Meta::Converter version 2.120351",
+   "generated_by" : "Module::Build version 0.4, CPAN::Meta::Converter version 2.120351",
    "license" : [
       "perl_5"
    ],
@@ -16,7 +16,7 @@
    "prereqs" : {
       "configure" : {
          "requires" : {
-            "Module::Build" : "0.38"
+            "Module::Build" : "0.4"
          }
       },
       "runtime" : {
@@ -30,7 +30,7 @@
    "provides" : {
       "Collection" : {
          "file" : "lib/Collection.pm",
-         "version" : "0.51"
+         "version" : "0.52"
       },
       "Collection::AutoSQL" : {
          "file" : "lib/Collection/AutoSQL.pm",
@@ -91,5 +91,5 @@
          "http://dev.perl.org/licenses/"
       ]
    },
-   "version" : "0.51"
+   "version" : "0.52"
 }
