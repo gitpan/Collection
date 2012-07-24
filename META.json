@@ -30,7 +30,7 @@
    "provides" : {
       "Collection" : {
          "file" : "lib/Collection.pm",
-         "version" : "0.52"
+         "version" : "0.53"
       },
       "Collection::AutoSQL" : {
          "file" : "lib/Collection/AutoSQL.pm",
@@ -91,5 +91,5 @@
          "http://dev.perl.org/licenses/"
       ]
    },
-   "version" : "0.52"
+   "version" : "0.53"
 }
