@@ -6,6 +6,7 @@ WriteMakefile
   'VERSION_FROM' => 'lib/Collection.pm',
   'PREREQ_PM' => {
                    'Flow' => '0.6',
+                   'JSON::XS' => '2.29',
                    'Storable' => 0,
                    'String::CRC32' => '1.4'
                  },

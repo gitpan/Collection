@@ -141,10 +141,14 @@ Return ref to ARRAY of readed IDs.
 sub get_ids_where {
     my $self       = shift;
     my $where      = shift || return [];
+    my $limit      = 0; 
     my $dbh        = $self->_dbh();
     my $table_name = $self->_table_name();
     my $field      = $self->_key_field;
     my $query      = "SELECT $field FROM $table_name WHERE $where";
+    if ($limit) {
+       $query .= " limit $limit"; 
+    }
     return ( $dbh->selectcol_arrayref($query) || [] );
 }
 
@@ -171,6 +175,7 @@ sub _store {
     my ( $self, $ref ) = @_;
     my $table_name = $self->_table_name();
     my $field      = $self->_key_field;
+
     while ( my ( $key, $rec_ref ) = each %$ref ) {
         my $tmp_val  = ref($rec_ref) eq 'HASH' ? $rec_ref : $rec_ref->_get_attr;
         my $prepared = $self->before_save($tmp_val);
@@ -457,6 +462,7 @@ params:
  where -  custom where if needed, instead expr ['where sring', $query_param1,..]
  query - custom query
  uniq - set uniq flag ( eq GROUP BY (key) )
+ order - ORDER BY field
 
 return:
     [array] - array of ids
