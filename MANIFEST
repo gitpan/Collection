@@ -29,3 +29,5 @@ t/040_Storable.t
 t/050_AutoSQL.t
 t/HashUnion.t
 t/LazyLoad.t
+META.yml
+META.json
