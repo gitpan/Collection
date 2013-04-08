@@ -31,7 +31,7 @@
    "provides" : {
       "Collection" : {
          "file" : "lib/Collection.pm",
-         "version" : "0.57"
+         "version" : "0.58"
       },
       "Collection::AutoSQL" : {
          "file" : "lib/Collection/AutoSQL.pm",
@@ -47,7 +47,7 @@
       },
       "Collection::Index" : {
          "file" : "lib/Collection/Index.pm",
-         "version" : 0
+         "version" : "0.02"
       },
       "Collection::Mem" : {
          "file" : "lib/Collection/Mem.pm",
@@ -100,5 +100,5 @@
          "http://dev.perl.org/licenses/"
       ]
    },
-   "version" : "0.57"
+   "version" : "0.58"
 }

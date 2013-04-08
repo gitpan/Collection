@@ -28,6 +28,7 @@ sub hex2raw { pack( "H*", shift ) }
 varchar => string       strin
 binary => hex2raw ( raw2hex)        BINARY
 refhash => { var1=>'1', var2=>0}    string ('var1=0 , var=2')
+json   => string    json serialized
 
 =cut
 sub _create {
@@ -89,7 +90,7 @@ sub _expand_rules {
                 # expand to crc and field_name
                 my $values = $rec->{'values'};
                 my ($crcrec) = $self->SUPER::_expand_rules(
-                    { $crc_field_name => [ map { crc32($_) } @$values ] } );
+                    { $crc_field_name => [ map { defined($_) ? crc32($_) : 0  } @$values ] } );
                 push @group, @$crcrec, $rec;
             }
         }
@@ -204,7 +205,7 @@ sub before_save {
           if exists $fields->{$key} and $fields->{$key} eq 'binary';
         my $crc_field_name = $key . "_crc";
         if ( exists $fields->{$crc_field_name} ) {
-            $crced{$crc_field_name} = $res{$crc_field_name} = crc32($val);
+            $crced{$crc_field_name} = $res{$crc_field_name} = defined($val) ? crc32($val) : 0;
         }
         if ($fields->{$key} eq 'refhash' ) {
             $val={} unless ref($val);
@@ -291,21 +292,20 @@ sub _store {
     }    #while
 }
 
-
 sub _fetch_ids {
     my $self       = shift;
     my $dbh        = $self->_dbh();
     my $table_name = $self->_table_name();
     my $field      = $self->_key_field;
     my $query      = "SELECT $field FROM $table_name";
-    my $ref = $dbh->selectcol_arrayref($query);
-    my $fields   = $self->_fields;
-    if ( my $type = $self->_fields->{$field}) {
+    my $res = $dbh->selectcol_arrayref($query);
+    if ( my $type = $self->_fields->{$field} ) {
+        #convert binary to string
         if ($type eq 'binary') {
-           return [ map { raw2hex($_)} @$ref ] 
+            $_ = raw2hex($_) for @$res ;
         }
     }
-    return $ref;
+    return $res;
 }
 
 1;
